@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <h2>Your Portfolio</h2>
+    <br>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Stock Symbol</th>
+                <th scope="col">Amount Owned</th>
+                <th scope="col">Price Per Stock</th>
+                <th scope="col">Total Value of Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <th scope="row">{{ stock["symbol"]  }}</th>
+                    <td>{{ stock["number"] }}</td>
+                    <td>{{ stock["price"] |usd}}</td>
+                    <td>{{ (stock["number"] * stock["price"])|usd }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>
+        <strong>Available Funds</strong> : <i>{{ cash[0]["cash"]|usd }}</i> <br><br>
+        <strong>Money Including Shares</strong> : <i>{{ total_money|usd }}</i> <br><br>
+        <strong>Total Value of Shares</strong> : <i>{{ (total_money - cash[0]["cash"])|usd }}</i>
+    </p>
+{% endblock %}

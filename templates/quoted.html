@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <p>
+        Name of Company = {{ quote["name"] }} <br>
+        Price = {{ quote["price"] | usd }} <br>
+        Symbol = {{ quote["symbol"] }}
+    </p>
+{% endblock %}

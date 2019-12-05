@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <p>
+        Successfully bought <strong>{{ number }}</strong> shares of <strong>{{ symbol }} </strong> at <strong>{{ cost|usd }}</strong> per share, for a total of {{ (number * cost) |usd }}
+    </p>
+{% endblock %}

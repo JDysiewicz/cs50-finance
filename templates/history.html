@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <h2>Your History</h2>
+    <br>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Stock Symbol</th>
+                <th scope="col">Amount Bought/Sold</th>
+                <th scope="col">Price Bought/Sold At Individually</th>
+                <th scope="col">Total Price Bought/Sold At</th>
+                <th scope="col">Date/Time of Transaction</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <th scope="row">{{ stock["symbol"]  }}</th>
+                    <td>{{ stock["number"] }}</td>
+                    <td>{{ stock["price"] }}</td>
+                    <td>{{ (stock["number"] * stock["price"]) }}</td>
+                    <td>{{ stock["datetime"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
